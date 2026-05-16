@@ -1,0 +1,10 @@
+﻿using pinterest_board_aspdotnet.Models;
+
+namespace pinterest_board_aspdotnet.Services
+{
+    public interface IBoardService
+    {
+        List<Board> GetAllBoards();
+        void AddBoard(Board board); 
+    }
+}
