@@ -1,0 +1,14 @@
+﻿@model IEnumerable<pinterest_board_aspdotnet.Models.Board>
+
+<h1>Board Page</h1>
+
+<div class="board-container">
+    @foreach (var item in Model)
+    {
+        <div class="board-item">
+            <h3>Board name: @item.Name</h3>
+            <p>Description: @item.Description</p>
+        </div>
+    }
+</div>
+

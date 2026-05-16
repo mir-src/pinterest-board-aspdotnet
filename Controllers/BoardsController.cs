@@ -5,9 +5,16 @@ namespace pinterest_board_aspdotnet.Controllers
 {
     public class BoardsController : Controller
     {
+        private readonly IBoardService _boardService;
+        public BoardsController(IBoardService boardService)
+        {
+            _boardService = boardService;
+        }
+
         public IActionResult Index()
         {
-            return View();
+            var posts = _boardService.GetAllBoards();
+            return View(posts);
         }
     }
 }
