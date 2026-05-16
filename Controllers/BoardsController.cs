@@ -16,5 +16,10 @@ namespace pinterest_board_aspdotnet.Controllers
             var posts = _boardService.GetAllBoards();
             return View(posts);
         }
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
     }
 }
