@@ -34,9 +34,20 @@ namespace pinterest_board_aspdotnet.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Delete(string name)
+        public IActionResult Delete(Board board)
         {
-            _boardService.RemoveBoard(name);
+            _boardService.RemoveBoard(board.Id);
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public IActionResult Rename()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Rename(Board board)
+        {
+            _boardService.RenameBoard(board.Id, board.Name);
             return RedirectToAction("Index");
         }
     }

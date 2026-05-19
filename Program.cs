@@ -1,9 +1,13 @@
+using Microsoft.EntityFrameworkCore;
 using pinterest_board_aspdotnet.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlite(connectionString)); 
 builder.Services.AddSingleton<IBoardService, BoardService>();
 
 var app = builder.Build();

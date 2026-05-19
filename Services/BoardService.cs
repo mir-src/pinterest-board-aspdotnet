@@ -14,9 +14,17 @@ namespace pinterest_board_aspdotnet.Services
         {
             _boards.Add(board);
         }
-        public void RemoveBoard(string name)
+        public void RemoveBoard(int id)
         {
-            _boards.RemoveAll(nm => nm.Name == name);
+            _boards.RemoveAll(b => b.Id == id);
+        }
+        public void RenameBoard(int id, string name)
+        {
+            var item = _boards.FirstOrDefault(t => t.Id == id);
+            if (item != null)
+            {
+                item.Name = name;
+            }
         }
     }
 }

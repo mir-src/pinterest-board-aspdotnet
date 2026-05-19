@@ -1,0 +1,13 @@
+@model pinterest_board_aspdotnet.Models.Board
+
+<h2>Rename a board</h2>
+
+<form asp-action="Rename" method="post">
+<div>
+    <label asp-for="Id">Enter Id of Board to rename</label>
+    <input asp-for="Id" type="number"/>
+    <label asp-for="Name">Enter new name for the board</label>
+    <input asp-for="Name" type="text"/>
+    <button type="submit">Rename</button>
+</div>
+</form>
