@@ -7,6 +7,6 @@ namespace pinterest_board_aspdotnet.Services
         List<Board> GetAllBoards();
         void AddBoard(Board board); 
         void RemoveBoard(int id);
-        void RenameBoard(int id, string newName);
+        void RenameBoard(int id, string name, string description);
     }
 }

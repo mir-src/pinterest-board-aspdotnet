@@ -47,7 +47,7 @@ namespace pinterest_board_aspdotnet.Controllers
         [HttpPost]
         public IActionResult Rename(Board board)
         {
-            _boardService.RenameBoard(board.Id, board.Name);
+            _boardService.RenameBoard(board.Id, board.Name, board.Description);
             return RedirectToAction("Index");
         }
     }

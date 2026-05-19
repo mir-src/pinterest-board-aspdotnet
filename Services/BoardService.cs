@@ -18,12 +18,13 @@ namespace pinterest_board_aspdotnet.Services
         {
             _boards.RemoveAll(b => b.Id == id);
         }
-        public void RenameBoard(int id, string name)
+        public void RenameBoard(int id, string name, string description)
         {
             var item = _boards.FirstOrDefault(t => t.Id == id);
             if (item != null)
             {
                 item.Name = name;
+                item.Description = description;
             }
         }
     }
