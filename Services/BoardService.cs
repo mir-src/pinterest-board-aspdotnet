@@ -14,5 +14,9 @@ namespace pinterest_board_aspdotnet.Services
         {
             _boards.Add(board);
         }
+        public void RemoveBoard(string name)
+        {
+            _boards.RemoveAll(nm => nm.Name == name);
+        }
     }
 }

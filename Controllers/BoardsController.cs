@@ -28,5 +28,16 @@ namespace pinterest_board_aspdotnet.Controllers
             _boardService.AddBoard(board); 
             return RedirectToAction("Index");
         } 
+        [HttpGet]
+        public IActionResult Delete()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Delete(string name)
+        {
+            _boardService.RemoveBoard(name);
+            return RedirectToAction("Index");
+        }
     }
 }

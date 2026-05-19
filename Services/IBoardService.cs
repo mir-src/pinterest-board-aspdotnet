@@ -6,5 +6,6 @@ namespace pinterest_board_aspdotnet.Services
     {
         List<Board> GetAllBoards();
         void AddBoard(Board board); 
+        void RemoveBoard(string name);
     }
 }
