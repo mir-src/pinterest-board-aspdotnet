@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using pinterest_board_aspdotnet.Services;
+using pinterest_board_aspdotnet.Models;
 
 namespace pinterest_board_aspdotnet.Controllers
 {
@@ -21,5 +22,11 @@ namespace pinterest_board_aspdotnet.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public IActionResult Create(Board board)
+        {
+            _boardService.AddBoard(board); 
+            return RedirectToAction("Index");
+        } 
     }
 }
