@@ -4,27 +4,37 @@ namespace pinterest_board_aspdotnet.Services
 {
     public class BoardService : IBoardService
     {
-        private static List<Board> _boards = new List<Board>(); 
-
+        private readonly AppDbContext _context;
+        public BoardService(AppDbContext context)
+        {
+            _context = context;
+        }
         public List<Board> GetAllBoards()
         {
-            return _boards;
+            return _context.Boards.ToList(); 
         }
         public void AddBoard(Board board)
         {
-            _boards.Add(board);
+            _context.Boards.Add(board);
+            _context.SaveChanges();
         }
         public void RemoveBoard(int id)
         {
-            _boards.RemoveAll(b => b.Id == id);
+            var item = _context.Boards.FirstOrDefault(b => b.Id == id);
+            if (item != null)
+            {
+                _context.Boards.Remove(item);
+                _context.SaveChanges();
+            }
         }
         public void RenameBoard(int id, string name, string description)
         {
-            var item = _boards.FirstOrDefault(t => t.Id == id);
+            var item = _context.Boards.FirstOrDefault(t => t.Id == id);
             if (item != null)
             {
                 item.Name = name;
                 item.Description = description;
+                _context.SaveChanges();
             }
         }
     }
